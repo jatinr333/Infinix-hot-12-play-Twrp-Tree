@@ -16,16 +16,22 @@ AB_OTA_POSTINSTALL_CONFIG += \
 # Boot control HAL
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
+    android.hardware.boot@1.0-impl.recovery \
+    android.hardware.boot@1.0-service 
 
 PRODUCT_PACKAGES += \
-    bootctrl.ums512
+    android.hardware.boot@1.1-impl-qti.recovery \
+    android.hardware.fastboot@1.0-impl-mock \
+    fastbootd
 
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.ums512 \
-    libgptutils \
-    libz \
-    libcutils
+PRODUCT_PACKAGES += \
+    bootctrl.ums512.recovery \
+    bootctrl.ums512
+    
+# Encryption
+PRODUCT_PACKAGES += \
+    qcom_decrypt \
+    qcom_decrypt_fbe
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
